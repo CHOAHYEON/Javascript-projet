@@ -26,17 +26,43 @@ calculateTallestSlide();
 for(var i = 0;i < slideCount;i++){
     slides[i].style.left = i*100 + "%";
 };
+
 //슬라이드 이동 함수
 function goToSlide(idx){
     slideContainer[0].style.left = idx * -100 + "%";
-    slideContainer[0].style.classList.add("animated");
+    slideContainer[0].classList.add("animated")
     currentIndex = idx;
-};
+
+    updateNav();
+}
 
 // 버튼기능 업데이트 함수
+function updateNav(){
+    //처음일 때
+    if(currentIndex == 0){
+        navPrev.className.add("disabled");
+    }else{
+        navPrev.className.remove("disabled");
+    } 
+
+    //마지막일 때
+    if(currentIndex < slideCount){
+        navNext.className.add("disabled");
+    }else{
+        navNext.className.remove("disabled");
+    }
+
+}
 
 //버튼을 클릭하면 슬라이드 이동시키기
-navPrev.addEventListener("click",function(){
-
+navPrev.addEventListener("click",function(e){
+    e.preventDefault();
+    goToSlide(currentIndex - 1);
 });
+navNext.addEventListener("click",function(e){
+    e.preventDefault();
+    goToSlide(currentIndex + 1);
+});
+
 //첫번째 슬라이드 먼저 보이기
+goToSlide(0);
