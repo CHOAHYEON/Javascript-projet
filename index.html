@@ -4,116 +4,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabs</title>
-    <style>
-        h1{
-            text-align: center;
-            margin-top: 5rem;
-        }
-        .tab-menu{
-            margin: 5rem 0 3rem;
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            gap: 2rem;
-        }
-        .tab-menu li{
-
-        }
-        .tab-menu li a{
-            display: block;
-            text-decoration: none;
-            font-weight: 600;
-            color: #999;
-            background: #eee;
-            padding: 5px 25px;
-        }
-        .tab-menu li a:hover,
-        .tab-menu li a.active{
-            color: #333;
-        }
-        #tab-content{
-            width: 50%;
-            margin: auto;
-        }
-        #tab-content > div{
-            display: none;
-        }
-    </style>
+    <title>Slide</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/d437dfc898.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
-    <h1>Tabs 순수 자바스크립트로 구현</h1>
-    <div class="tab-wrapper">
-        <ul class="tab-menu">
-            <li><a href="#tabs-1" class="active">MENU1</a></li>
-            <li><a href="#tabs-2">MENU2</a></li>
-            <li><a href="#tabs-3">MENU3</a></li>
+    <header>
+        <h1><span>Slide</span> 순수 자바스크립트으로 구현하기</h1>
+    </header>
+   <div class="container">
+        <ul class="slider-container simple-list" id="slider">
+            <li class="slide">
+                <h3>slide1</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, consequatur quam? Veniam dolor, molestias provident fugiat tempore sed eveniet non corporis minus suscipit voluptas et voluptates, inventore iste! Voluptatem, id!</p>
+            </li>
+            <li class="slide">
+                <h3>slide2</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, consequatur quam? Veniam dolor, molestias provident fugiat tempore sed eveniet non corporis minus suscipit voluptas et voluptates, inventore iste! Voluptatem, id!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, consequatur quam? Veniam dolor, molestias provident fugiat tempore sed eveniet non corporis minus suscipit voluptas et voluptates, inventore iste! Voluptatem, id!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, consequatur quam? Veniam dolor, molestias provident fugiat tempore sed eveniet non corporis minus suscipit voluptas et voluptates, inventore iste! Voluptatem, id!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, consequatur quam? Veniam dolor, molestias provident fugiat tempore sed eveniet non corporis minus suscipit voluptas et voluptates, inventore iste! Voluptatem, id!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, consequatur quam? Veniam dolor, molestias provident fugiat tempore sed eveniet non corporis minus suscipit voluptas et voluptates, inventore iste! Voluptatem, id!</p>
+            </li>
+            <li class="slide">
+                <h3>slide3</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, consequatur quam? Veniam dolor, molestias provident fugiat tempore sed eveniet non corporis minus suscipit voluptas et voluptates, inventore iste! Voluptatem, id!</p>
+            </li>
+            <li class="slide">
+                <h3>slide4</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, consequatur quam? Veniam dolor, molestias provident fugiat tempore sed eveniet non corporis minus suscipit voluptas et voluptates, inventore iste! Voluptatem, id!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, consequatur quam? Veniam dolor, molestias provident fugiat tempore sed eveniet non corporis minus suscipit voluptas et voluptates, inventore iste! Voluptatem, id!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, consequatur quam? Veniam dolor, molestias provident fugiat tempore sed eveniet non corporis minus suscipit voluptas et voluptates, inventore iste! Voluptatem, id!</p>
+            </li>
+            <li class="slide">
+                <h3>slide5</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, consequatur quam? Veniam dolor, molestias provident fugiat tempore sed eveniet non corporis minus suscipit voluptas et voluptates, inventore iste! Voluptatem, id!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, consequatur quam? Veniam dolor, molestias provident fugiat tempore sed eveniet non corporis minus suscipit voluptas et voluptates, inventore iste! Voluptatem, id!</p>
+            </li>
+            <li class="slide">
+                <h3>slide6</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, consequatur quam? Veniam dolor, molestias provident fugiat tempore sed eveniet non corporis minus suscipit voluptas et voluptates, inventore iste! Voluptatem, id!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, consequatur quam? Veniam dolor, molestias provident fugiat tempore sed eveniet non corporis minus suscipit voluptas et voluptates, inventore iste! Voluptatem, id!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, consequatur quam? Veniam dolor, molestias provident fugiat tempore sed eveniet non corporis minus suscipit voluptas et voluptates, inventore iste! Voluptatem, id!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, consequatur quam? Veniam dolor, molestias provident fugiat tempore sed eveniet non corporis minus suscipit voluptas et voluptates, inventore iste! Voluptatem, id!</p>
+            </li>
         </ul>
-        <div id="tab-content">
-            <div id="tabs-1" class="active">
-                <h2>Menu1</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque repellendus labore sequi est esse nihil repudiandae quis voluptatibus voluptatem, vel sapiente, iure earum recusandae? Fuga a ut modi quos voluptates.
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum cum voluptatem nesciunt? Rerum aspernatur iure numquam perferendis id voluptatem possimus voluptates, doloremque veniam omnis fuga fugit vel. Iure, dolore repudiandae?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis dolore exercitationem rem. Laboriosam, iusto maxime repellat repellendus repudiandae ipsum autem, reiciendis corrupti vel accusantium nostrum. Possimus eaque vel perspiciatis? Velit.
-                </p>
-            </div>
-            <div id="tabs-2">
-                <h2>Menu2</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque repellendus labore sequi est esse nihil repudiandae quis voluptatibus voluptatem, vel sapiente, iure earum recusandae? Fuga a ut modi quos voluptates.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dolores a sapiente, veniam incidunt architecto quas quam suscipit maxime accusamus impedit cum quidem sunt corporis sit omnis culpa nam atque.
-                </p>
-            </div>
-            <div id="tabs-3">
-                <h2>Menu3</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque repellendus labore sequi est esse nihil repudiandae quis voluptatibus voluptatem, vel sapiente, iure earum recusandae? Fuga a ut modi quos voluptates.
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus nulla deleniti obcaecati porro impedit aperiam tenetur eum, eos sequi, nesciunt ipsum ad rerum dignissimos deserunt mollitia? Corrupti amet recusandae sequi.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus necessitatibus minima error corrupti? Exercitationem, consequuntur eius recusandae ea quo quia quasi cumque officiis illo delectus magnam rem! Sapiente, consequuntur perferendis.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates impedit consectetur ea porro doloribus laboriosam, delectus iste mollitia quod sapiente eum. Molestias ipsa totam earum a nihil autem, dolores explicabo!
-                </p>
-            </div>
-        </div>
-    </div>
 
-    <script>
-        /*
-        tab-content 안의 div들 모두 안보이도록
+        <a href="#" id="prev"><i class="fa-solid fa-circle-arrow-left"></i></a>
+        <a href="#" id="next"><i class="fa-solid fa-circle-arrow-right"></i></a>
+   </div> 
 
-        링크를 클릭하면클릭한 요소의 href속성의 값을 변수 tabTarget에 저장.
-        저장된 값에서 #을 삭제한다.
-        tabTarget = tabs-1
-        document.getElementById(tabs-1).style.display = "block"
-        */
-
-        var targetLink = document.querySelectorAll(".tab-menu a");
-        var tabContent = document.querySelectorAll("#tab-content > div");
-
-        for(var i = 0; i < targetLink.length; i++){
-            
-            targetLink[i].addEventListener("click", function(e){
-                e.preventDefault();
-                var orgTarget = e.target.getAttribute("href");
-                //console.log(orgTarget);
-
-                var tabTarget = orgTarget.replace("#","");
-
-                for(x = 0; x < tabContent.length; x++){
-                    tabContent[x].style.display = "none";
-                }
-
-                document.getElementById(tabTarget).style.display = "block";
-
-                for(var j = 0; j < targetLink.length; j++){
-                    targetLink[j].classList.remove("active");
-                    e.target.classList.add("active");
-                };
-
-            });
-
-        }
-        document.getElementById("tabs-1").style.display = "block";
-
-
-    </script>
+   <script src="./script.js"></script>
 </body>
 </html>
