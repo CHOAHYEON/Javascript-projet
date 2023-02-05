@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>accodion</title>
+    <script src="https://kit.fontawesome.com/d437dfc898.js" crossorigin="anonymous"></script>
+
+    <style>
+        body{background: #f0f0f0;}
+        .container{
+            width: 80%;
+            margin: auto;
+        }
+        #btn-collapse{
+            background: #999;
+            color: #fff;
+            border: none;
+            padding: 5px;
+            float: right;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        #btn-collapse:hover{
+            background: #555;
+        }
+        .panel-question{margin: 50px 0;}
+        .panel-head{
+            background: #333;
+            color: #fff;
+            padding: 8px 5px;
+            cursor: pointer;
+        }
+        .panel-head i{font-size: 12px;}
+        .panel-body{
+            background: #fff;
+            padding: 20px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="btn-collapse">Collapse All</button>
+        <h2>Accodion 순수 자바스크립트로 구현</h2>
+        <section id="fag">
+            <div class="panel-question active">
+                <div class="panel-head">
+                    <span><i class="fa-solid fa-plus"></i></span> Lorem ipsum dolor sit?
+                </div>
+                <div class="panel-body" id="thisone">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti unde, dignissimos aliquam mollitia nobis ullam eaque cumque sapiente libero ipsa voluptatibus accusamus. Suscipit unde ipsa accusamus, dolore architecto error aut.
+                </div>
+            </div>
+            <div class="panel-question">
+                <div class="panel-head">
+                    <span><i class="fa-solid fa-plus"></i></span> Lorem ipsum dolor sit?
+                </div>
+                <div class="panel-body" id="thisone">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus eum quas, deserunt quia expedita veritatis iste quaerat aliquam voluptate mollitia commodi earum molestias corrupti, corporis, voluptatum repudiandae odio esse ut?
+                </div>
+            </div>
+            <div class="panel-question">
+                <div class="panel-head">
+                    <span><i class="fa-solid fa-plus"></i></span> Lorem ipsum dolor sit?
+                </div>
+                <div class="panel-body" id="thisone">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat ab impedit animi laudantium unde necessitatibus veritatis similique? Alias cumque molestias similique molestiae itaque, modi sequi laudantium quod incidunt quo libero!
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+<script>
+    var btnCollapse = document.getElementById("btn-collapse"),
+        heading = document.getElementsByClassName("panel-head"),
+        question = document.getElementsByClassName("panel-question"),
+        answer = document.getElementsByClassName("panel-body");
+
+    //제목을 클릭하면 할 일
+    for(var i = 0;i < heading.length;i++){
+        heading[i].addEventListener("click", function(e){//어떤 heading인지 구분 > 매개변수 e사용
+            for(var j = 0; j < question.length; j++){
+                question[j].classList.remove("active");
+                e.target.parentNode.classList.add("active");//클릭된 e의 바로 위 부모
+                activateBody();
+            }//question마다 할 일
+        });
+    }
+
+    function activateBody(){
+        //panel-body의 바디가 모두 안보이도록
+        for(var x = 0; x < answer.length; x++){
+            answer[x].style.display = "none";
+        }
+        //panel-question.active에 자식 panel-body 보이도록
+        var activePanel = document.querySelector(".panel-question.active .panel-body");
+        activePanel.style.display = "block"
+    }
+
+    activateBody();
+    //collapse all 버튼을 클릭하면 모든 answer 안보이도록
+    btnCollapse.addEventListener("click",function(){
+        for(var i = 0; i < answer.length; i++){
+            answer[i].style.display = "none";
+        }
+    });
+</script>
+</html>
