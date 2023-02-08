@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Animation</title>
+    <style>
+        :root {
+            --red: firebrick;
+            --white: white;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        body {
+            font: 22px/1.5 sans-serif;
+        }
+
+        h2 {
+            text-align: center;
+        margin-bottom: 3rem;        }
+        .container{
+            max-width: 800px;
+            margin: 5rem auto;
+            width: 100%;
+        }
+        .container a{
+            border-bottom: 2px dashed var(--red);
+            position: relative;
+
+        }
+        .container a::before{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%) scaleX(0);
+            padding: 10px;
+            z-index: -1;
+            transform-origin: 50% 50%;
+            transition: all 0.3s ease-out;
+            min-height: 30px;
+            background: var(--white);
+        }
+        .container a:hover{
+            z-index: 2;
+            border: none;
+            color: var(--red);
+        }
+        .container a:hover::before{
+            transform: translate(-50%,-50%) scaleX(1);
+        }
+        .bg{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            opacity: 0;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            transition: all 0.3s ease-out;
+        }
+        .bg-show .bg{
+            opacity: 1;
+            z-index: 1;
+        }
+
+    </style>
+</head>
+<body>
+ <div class="bg"></div>
+<div class="container">
+  <h2>Hover over the links 순수자바스크립트 구현</h2>
+  But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will <a data-bg="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/freedom.jpg" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/freedom.jpg" target="_blank">freedom</a> you a account of the system, and expound the actual teachings of the great of the truth, <a data-bg="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/travel.jpg" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/travel.jpg" target='_blank'>travel</a> master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is, but <a data-bg="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/explore.jpg" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/explore.jpg" target="_blank">explore</a> those who do not know how to pursue pleasure rationally encounter consequences that are <a data-bg="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/holiday.jpg" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/holiday.jpg" target="_blank">holidays</a> painful. 
+</div>
+
+
+
+<script>
+    const links = document.querySelectorAll(".container a");
+    const bg = document.querySelector(".bg");
+    const showClass = "bg-show"
+
+    //links라는 상수 안에 있는 각각의 link가 해야하는 일
+    for(const link of links){
+        const img = new Image();//이미지 생성
+        img.src = link.dataset.bg;
+        // console.log(img);
+
+        link.addEventListener("mouseenter",function(){
+            bg.style.backgroundImage = `url(${this.dataset.bg})`;
+            document.body.classList.add(showClass);
+
+
+        });
+        link.addEventListener("mouseleave",function(){
+            document.body.classList.remove(showClass);
+        });
+    }// for 반복문 end
+
+</script>
+
+</body>
+</html>
